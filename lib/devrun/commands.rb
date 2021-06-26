@@ -12,7 +12,14 @@ module Devrun
       Registry.add(->() { const_get(const) }, cmd)
     end
 
-    register :Example, 'example', 'devrun/commands/example'
-    register :Help,    'help',    'devrun/commands/help'
+    autoload(:Contextual, 'devrun/commands/contextual')
+
+    register(:Cd,     'cd',     'devrun/commands/cd')
+    register(:Clone,  'clone',  'devrun/commands/clone')
+    register(:Config, 'config', 'devrun/commands/config')
+    register(:Help,   'help',   'devrun/commands/help')
+    register(:Init,   'init',   'devrun/commands/init')
+    register(:Open,   'open',   'devrun/commands/open')
+    register(:Up,     'up',     'devrun/commands/up')
   end
 end
