@@ -8,7 +8,7 @@
   <a href="https://www.ruby-lang.org/en/">
     <img src="https://img.shields.io/badge/Ruby-v2.7.3-green.svg" alt="ruby version">
   </a>
-  <a href="https://gitpod.io/from-referrer/">
+  <a href="https://gitpod.io/#https://github.com/Jazb/devrun">
     <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
   </a>
   </a>
