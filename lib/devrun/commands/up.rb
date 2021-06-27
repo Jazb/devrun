@@ -2,9 +2,9 @@ require 'devrun'
 
 module Devrun
   module Commands
-    class Up < Dev::Command
+    class Up < Devrun::Command
       def call(args, _name)
-        Dev::Project.current.config['up'].each do |task|
+        Devrun::Project.current.config['up'].each do |task|
           puts "no idea how to run this task:"
           puts "  #{task.inspect}"
         end

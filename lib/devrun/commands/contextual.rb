@@ -1,9 +1,9 @@
 require 'devrun'
 
-module Devrun
+module Devrunr
   module Commands
-    class Contextual < Dev::Command
-      DEFAULT_COMMANDS = Dev::ContextualResolver::DEFAULT_COMMANDS
+    class Contextual < Devrun::Command
+      DEFAULT_COMMANDS = Devrun::ContextualResolver::DEFAULT_COMMANDS
 
       def call(args, name)
         cfg = Project.current.config

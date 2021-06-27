@@ -3,7 +3,7 @@ require('fileutils')
 
 module Devrun
   module Commands
-    class Clone < Dev::Command
+    class Clone < Devrun::Command
       def call(args, _name)
         raise(Abort, 'one arg required') unless args.size == 1
         arg = args.first
@@ -24,7 +24,7 @@ module Devrun
       end
 
       def default_account
-        account = Dev::Config.get('default', 'account')
+        account = Devrun::Config.get('default', 'account')
         raise(Abort, 'account/repo both required unless default.account is set in config') unless account
         account
       end

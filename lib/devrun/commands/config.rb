@@ -2,7 +2,7 @@ require 'devrun'
 
 module Devrun
   module Commands
-    class Config < Dev::Command
+    class Config < Devrun::Command
       def call(args, _name)
         case args.size
         when 0
@@ -35,33 +35,33 @@ module Devrun
 
       def split_key!(section_and_key)
         split_key(section_and_key).tap do |_section, key|
-          raise(Dev::Abort, "Key must contain a \".\"") unless key
+          raise(Devrun::Abort, "Key must contain a \".\"") unless key
         end
       end
 
       def print_config(section = nil, key = nil)
         if key
-          val = Dev::Config.get(section, key)
-          raise(Dev::AbortSilent) unless val
+          val = Devrun::Config.get(section, key)
+          raise(Devrun::AbortSilent) unless val
           puts val
         elsif section
-          section_hash = Dev::Config.get_section(section)
-          raise(Dev::AbortSilent) if section_hash.empty?
+          section_hash = Devrun::Config.get_section(section)
+          raise(Devrun::AbortSilent) if section_hash.empty?
           puts section_hash.map { |k, v| "#{k} = #{v}" }
         else
-          puts Dev::Config.to_s
+          puts Devrun::Config.to_s
         end
       end
 
       def print_usage
         STDERR.puts "This was not the correct usage of the `config` command"
         STDERR.puts "Please see below for the correct usage:\n\n"
-        Dev::Commands::Help.call(%w(config), 'help')
+        Devrun::Commands::Help.call(%w(config), 'help')
       end
 
       def record_config(section, key, value)
         puts "Setting config with key #{section}.#{key} to #{value.inspect}"
-        Dev::Config.set(section, key, value)
+        Devrun::Config.set(section, key, value)
       end
     end
   end

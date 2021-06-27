@@ -2,14 +2,14 @@ require 'devrun'
 
 module Devrun
   module Commands
-    class Help < Dev::Command
+    class Help < Devrun::Command
       def call(args, _name)
         puts CLI::UI.fmt("{{bold:Available commands}}")
         puts ""
 
-        Dev::Commands::Registry.resolved_commands.each do |name, klass|
+        Devrun::Commands::Registry.resolved_commands.each do |name, klass|
           next if name == 'help'
-          puts CLI::UI.fmt("{{command:#{Dev::TOOL_NAME} #{name}}}")
+          puts CLI::UI.fmt("{{command:#{Devrun::TOOL_NAME} #{name}}}")
           next unless klass.respond_to?(:help)
           if help = klass.help
             puts CLI::UI.fmt(help)

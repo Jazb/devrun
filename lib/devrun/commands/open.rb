@@ -4,7 +4,7 @@ module Devrun
   module Commands
     GITHUB_URL = 'https://github.com'
 
-    class Open < Dev::Command
+    class Open < Devrun::Command
       def call(args, _name)
         raise(Abort, 'one arg required') unless args.size == 1
 

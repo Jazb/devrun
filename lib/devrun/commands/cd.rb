@@ -8,7 +8,7 @@ module Devrun
     end
     GITHUB_ROOT = '~/src/github.com'
 
-    class Cd < Dev::Command
+    class Cd < Devrun::Command
       def call(args, _name)
         raise(Abort, 'one arg required') unless args.size == 1
         arg = args.first
